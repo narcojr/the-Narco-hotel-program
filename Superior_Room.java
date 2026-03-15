@@ -1,7 +1,7 @@
 
 public class Superior_Room extends Economy_Room {
 
-    private boolean hasCityView;
+    private boolean hasminors;
     private boolean hasBalcony;
 
     public Superior_Room() {
@@ -9,8 +9,8 @@ public class Superior_Room extends Economy_Room {
         setRoomType("Superior Room");
         setPricePerNight(2800.00);
         setMaxOccupancy(3);
-        setDescription("Superior room with city view, spacious layout, premium bedding, smart TV, and work desk.");
-        this.hasCityView = true;
+        setDescription("Superior room with island view, spacious layout, premium bedding, smart TV, 2 minors, and work desk.");
+        this.hasminors = true;
         this.hasBalcony  = false;
     }
 
@@ -21,18 +21,18 @@ public class Superior_Room extends Economy_Room {
     }
 
     // Getters
-    public boolean isHasCityView() { return hasCityView; }
+    public boolean isHasminors() { return hasminors; }
     public boolean isHasBalcony()  { return hasBalcony;  }
 
     // Setters
-    public void setHasCityView(boolean hasCityView) { this.hasCityView = hasCityView; }
+    public void setHasminors(boolean hasminors) { this.hasminors = hasminors; }
     public void setHasBalcony(boolean hasBalcony)   { this.hasBalcony  = hasBalcony;  }
 
     @Override
     public String toString() {
         return super.toString() +
-               String.format(" | City View: %s | Balcony: %s",
-                       hasCityView ? "Yes" : "No",
+               String.format(" | minors: %s | Balcony: %s",
+                       hasminors ? "Yes" : "No",
                        hasBalcony  ? "Yes" : "No");
     }
 }
