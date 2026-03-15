@@ -52,7 +52,7 @@ public class Penthouse_Suite extends Economy_Room {
                        hasRooftopTerrace ? "Yes" : "No",
                        hasConcierge      ? "Yes" : "No",
                        hasHomeTheater    ? "Yes" : "No",
-                       hasChefService    ? "Yes" : "No";
+                       hasChefService    ? "Yes" : "No",
                        hasminors         ? "Yes" : "No");
     }
 }
