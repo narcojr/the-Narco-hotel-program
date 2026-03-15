@@ -1,6 +1,4 @@
-// =============================================
-//  COUPLE ROOM - Subclass of Economy_Room
-// =============================================
+
 public class couple_room extends Economy_Room {
 
     private boolean hasKingBed;

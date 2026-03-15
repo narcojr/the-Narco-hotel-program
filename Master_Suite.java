@@ -1,6 +1,4 @@
-// =============================================
-//  MASTER SUITE - Subclass of Economy_Room
-// =============================================
+
 public class Master_Suite extends Economy_Room {
 
     private boolean hasPrivateDining;

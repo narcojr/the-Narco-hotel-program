@@ -1,6 +1,4 @@
-// =============================================
-//  PENTHOUSE SUITE - Subclass of Economy_Room
-// =============================================
+
 public class Penthouse_Suite extends Economy_Room {
 
     private boolean hasPrivatePool;

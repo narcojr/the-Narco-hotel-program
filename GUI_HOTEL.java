@@ -22,9 +22,8 @@ public class GUI_HOTEL extends JFrame {
         SwingUtilities.invokeLater(GUI_HOTEL::new);
     }
 
-    // =========================================
+    
     //  COLOUR PALETTE
-    // =========================================
     private static final Color GOLD        = new Color(197, 153,   0);
     private static final Color GOLD_LIGHT  = new Color(218, 180,  30);
     private static final Color GOLD_DARK   = new Color(150, 110,   0);
@@ -41,17 +40,15 @@ public class GUI_HOTEL extends JFrame {
 
     private static final SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yyyy");
 
-    // =========================================
+    
     //  ROOM INVENTORY  (80 rooms)
-    // =========================================
     private final List<Economy_Room>         allRooms      = new ArrayList<>();
     private final Map<Integer, Insurance>    roomInsurance = new HashMap<>();
     // Store nights for checkout bill
     private final Map<Integer, Long>         roomNights    = new HashMap<>();
 
-    // =========================================
+    
     //  TAB 1 COMPONENTS
-    // =========================================
     private JComboBox<String> cbRoomType, cbRoomNumber;
     private JTextField tfFirstName, tfLastName, tfContact, tfEmail, tfIdNumber;
     private JComboBox<String> cbIdType, cbInsurancePlan;
@@ -62,29 +59,21 @@ public class GUI_HOTEL extends JFrame {
     private JLabel lblCovAcc, lblCovMed, lblCovProp, lblCovTrip, lblCovNat;
     private JLabel lblNights, lblRoomTotal, lblInsTotal, lblGrandTotal;
 
-    // =========================================
     //  TAB 2 COMPONENTS
-    // =========================================
     private JComboBox<String>  cbFilterType;
     private JTable             availTable;
     private DefaultTableModel  availModel;
     private JLabel             lblAvailCount, lblOccupiedCount;
 
-    // =========================================
     //  TAB 3 COMPONENTS
-    // =========================================
     private JTable            reservTable;
     private DefaultTableModel reservModel;
 
-    // =========================================
     //  TAB 4 COMPONENTS
-    // =========================================
     private JComboBox<String> cbCheckoutRoom;
     private JTextArea         taCheckoutInfo;
 
-    // =========================================
     //  CONSTRUCTOR
-    // =========================================
     public GUI_HOTEL() {
         initRooms();
         buildUI();
@@ -96,9 +85,7 @@ public class GUI_HOTEL extends JFrame {
         setVisible(true);
     }
 
-    // =========================================
     //  INIT 80 ROOMS
-    // =========================================
     private void initRooms() {
         for (int i = 1; i <= 20; i++) allRooms.add(new Economy_Room   (100 + i));
         for (int i = 1; i <= 10; i++) allRooms.add(new couple_room    (200 + i));
@@ -111,9 +98,7 @@ public class GUI_HOTEL extends JFrame {
         for (int i = 1; i <=  2; i++) allRooms.add(new VIP            (700 + i));
     }
 
-    // =========================================
     //  MAIN UI BUILD
-    // =========================================
     private void buildUI() {
         setLayout(new BorderLayout());
         getContentPane().setBackground(BG_DARK);
@@ -122,7 +107,7 @@ public class GUI_HOTEL extends JFrame {
         add(buildFooter(),  BorderLayout.SOUTH);
     }
 
-    // ---- HEADER ----
+    // HEADER 
     private JPanel buildHeader() {
         JPanel h = new JPanel(new BorderLayout());
         h.setBackground(BG_DARK);
@@ -170,7 +155,7 @@ public class GUI_HOTEL extends JFrame {
         return f;
     }
 
-    // ---- TABS ----
+    // TABS
     private JTabbedPane buildTabs() {
         JTabbedPane tp = new JTabbedPane(JTabbedPane.TOP);
         tp.setFont(new Font("Segoe UI", Font.BOLD, 13));
@@ -183,9 +168,7 @@ public class GUI_HOTEL extends JFrame {
         return tp;
     }
 
-    // =========================================
     //  TAB 1 — MAKE RESERVATION
-    // =========================================
     private JPanel buildReservationTab() {
         JPanel main = new JPanel(new BorderLayout(10, 10));
         main.setBackground(BG_LGREY);
@@ -229,7 +212,7 @@ public class GUI_HOTEL extends JFrame {
         return main;
     }
 
-    // -- Room Selection panel --
+    // Room Selection panel 
     private JPanel buildRoomPanel() {
         JPanel p = white("Room Selection");
 
@@ -260,7 +243,7 @@ public class GUI_HOTEL extends JFrame {
         return p;
     }
 
-    // -- Guest Info panel --
+    // Guest Info panel 
     private JPanel buildGuestPanel() {
         JPanel p = white("Guest Information");
 
@@ -283,7 +266,7 @@ public class GUI_HOTEL extends JFrame {
         return p;
     }
 
-    // -- Scroll Date Picker panel --
+    // Scroll Date Picker panel 
     private JPanel buildDatePanel() {
         JPanel p = white("Check-In / Check-Out  ▲▼ Scroll to change date");
 
@@ -331,7 +314,7 @@ public class GUI_HOTEL extends JFrame {
         return p;
     }
 
-    // -- Insurance panel --
+    // Insurance panel 
     private JPanel buildInsurancePanel() {
         JPanel p = white("Insurance Options");
 
@@ -423,7 +406,7 @@ public class GUI_HOTEL extends JFrame {
                 new EmptyBorder(3, 2, 3, 2)));
     }
 
-    // -- Price Summary bar --
+    //Price Summary bar
     private JPanel buildPriceSummary() {
         JPanel p = new JPanel(new GridLayout(1, 4, 10, 0));
         p.setOpaque(false);
@@ -466,9 +449,9 @@ public class GUI_HOTEL extends JFrame {
         return String.format("%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue());
     }
 
-    // =========================================
+
     //  PRICE CALCULATION
-    // =========================================
+    
     private void recalcPrice() {
         Date ci = (Date) spCheckIn.getValue();
         Date co = (Date) spCheckOut.getValue();
@@ -508,9 +491,8 @@ public class GUI_HOTEL extends JFrame {
         return Insurance.PLAN_NONE;
     }
 
-    // =========================================
+
     //  TAB 2 — CHECK AVAILABILITY
-    // =========================================
     private JPanel buildAvailabilityTab() {
         JPanel main = new JPanel(new BorderLayout(8, 8));
         main.setBackground(BG_LGREY);
@@ -550,9 +532,9 @@ public class GUI_HOTEL extends JFrame {
         return main;
     }
 
-    // =========================================
+   
     //  TAB 3 — ALL RESERVATIONS
-    // =========================================
+    
     private JPanel buildReservListTab() {
         JPanel main = new JPanel(new BorderLayout(8, 8));
         main.setBackground(BG_LGREY);
@@ -577,9 +559,8 @@ public class GUI_HOTEL extends JFrame {
         return main;
     }
 
-    // =========================================
+    
     //  TAB 4 — CHECK OUT
-    // =========================================
     private JPanel buildCheckoutTab() {
         JPanel main = new JPanel(new BorderLayout(10, 10));
         main.setBackground(BG_LGREY);
@@ -615,9 +596,8 @@ public class GUI_HOTEL extends JFrame {
         return main;
     }
 
-    // =========================================
+    
     //  BUSINESS LOGIC
-    // =========================================
     private void processReservation() {
         String item = (String) cbRoomNumber.getSelectedItem();
         if (item == null || item.startsWith("No")) { showMsg("No available room selected.", "Error", JOptionPane.ERROR_MESSAGE); return; }
@@ -862,24 +842,18 @@ public class GUI_HOTEL extends JFrame {
         }
     }
 
-    // =========================================
-    //  REFRESH ALL
-    // =========================================
+    // REFRESH ALL
     private void refreshAll() {
         updateRoomNumberCombo(); updateRoomInfo();
         refreshAvailTable(); refreshReservTable(); refreshCheckoutCombo();
     }
 
-    // =========================================
     //  UTILITY
-    // =========================================
     private Economy_Room findRoom(int n) { for (Economy_Room r : allRooms) if (r.getRoomNumber() == n) return r; return null; }
     private int countAvailable()         { int n = 0; for (Economy_Room r : allRooms) if (r.isAvailable()) n++; return n; }
     private void showMsg(String m, String t, int type) { JOptionPane.showMessageDialog(this, m, t, type); }
 
-    // =========================================
     //  STYLE HELPERS
-    // =========================================
     private JPanel white(String title) {
         JPanel p = new JPanel();
         p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));

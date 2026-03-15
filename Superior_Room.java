@@ -1,6 +1,4 @@
-// =============================================
-//  SUPERIOR ROOM - Subclass of Economy_Room
-// =============================================
+
 public class Superior_Room extends Economy_Room {
 
     private boolean hasCityView;

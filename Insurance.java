@@ -1,7 +1,4 @@
-// =============================================
-//  INSURANCE - Subclass of Economy_Room
-//  Add-on insurance plan for hotel reservations
-// =============================================
+
 public class Insurance extends Economy_Room {
 
     // ---- Insurance Plan Types ----

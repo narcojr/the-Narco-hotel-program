@@ -1,6 +1,4 @@
-// =============================================
-//  DELUXE ROOM - Subclass of Economy_Room
-// =============================================
+
 public class Deluxe_Room extends Economy_Room {
 
     private boolean hasSeaView;

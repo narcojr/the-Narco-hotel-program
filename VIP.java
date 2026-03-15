@@ -1,6 +1,4 @@
-// =============================================
-//  VIP ROOM - Subclass of Economy_Room
-// =============================================
+
 public class VIP extends Economy_Room {
 
     private boolean hasLimousineService;

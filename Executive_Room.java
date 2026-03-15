@@ -1,6 +1,4 @@
-// =============================================
-//  EXECUTIVE ROOM - Subclass of Economy_Room
-// =============================================
+
 public class Executive_Room extends Economy_Room {
 
     private boolean hasExecutiveLounge;

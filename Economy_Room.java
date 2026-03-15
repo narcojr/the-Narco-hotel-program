@@ -1,7 +1,4 @@
-// =============================================
-//  ECONOMY ROOM - PARENT CLASS
-//  THE NARCO HOTEL - Reservation System
-// =============================================
+
 public class Economy_Room {
 
     // ---- Fields ----

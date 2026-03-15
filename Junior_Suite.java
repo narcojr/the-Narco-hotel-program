@@ -1,6 +1,4 @@
-// =============================================
-//  JUNIOR SUITE - Subclass of Economy_Room
-// =============================================
+
 public class Junior_Suite extends Economy_Room {
 
     private boolean hasSeparateLivingArea;

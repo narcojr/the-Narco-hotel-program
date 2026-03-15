@@ -1,7 +1,4 @@
-// =============================================
-//  USER / GUEST CLASS
-//  THE NARCO HOTEL - Reservation System
-// =============================================
+
 public class User_name {
 
     private String firstName;
