@@ -13,7 +13,7 @@ public class User_name {
     public User_name() {}
 
     public User_name(String firstName, String lastName, String contactNumber,
-                    String email, String idType, String idNumber, int numberOfGuests) {
+                    String email, String idType, String idNumber, int numberOfGuests, String creditCardNumber) {
         this.firstName      = firstName;
         this.lastName       = lastName;
         this.contactNumber  = contactNumber;
@@ -48,7 +48,7 @@ public class User_name {
 
     @Override
     public String toString() {
-        return String.format("Guest: %s %s | Contact: %s | Email: %s | ID: %s - %s | Guests: %d",
+        return String.format("Guest: %s %s | Contact: %s | Email: %s | ID: %s - %s | Guests: %d | Credit Card: %s",
                 firstName, lastName, contactNumber, email, idType, idNumber, numberOfGuests);
     }
 }

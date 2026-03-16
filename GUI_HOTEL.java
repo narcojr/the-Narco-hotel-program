@@ -70,7 +70,7 @@ public class GUI_HOTEL extends JFrame {
     public GUI_HOTEL() {
         initRooms();
         buildUI();
-        setTitle("the trump tower Reservation System");
+        setTitle("the 9/11 Reservation System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1030, 780);
         setMinimumSize(new Dimension(920, 680));
@@ -106,11 +106,11 @@ public class GUI_HOTEL extends JFrame {
         h.setBackground(BG_DARK);
         h.setBorder(new EmptyBorder(16, 24, 12, 24));
 
-        JLabel title = new JLabel("THE TRUMP TOWER");
+        JLabel title = new JLabel("THE NINE ELEVENTH TOWER");
         title.setFont(new Font("Georgia", Font.BOLD, 30));
         title.setForeground(GOLD);
 
-        JLabel sub = new JLabel(" Luxury Room Reservations ");
+        JLabel sub = new JLabel(" Luxury Room Reservations | WATCH FOR THE PLANES ");
         sub.setFont(new Font("Segoe UI", Font.ITALIC, 13));
         sub.setForeground(new Color(200, 200, 200));
 
@@ -619,7 +619,7 @@ public class GUI_HOTEL extends JFrame {
         double grand     = roomTotal + insCost;
 
         User_name guest = new User_name(first, last, contact,
-                tfEmail.getText().trim(), (String) cbIdType.getSelectedItem(), idNum, (int) spGuests.getValue());
+                tfEmail.getText().trim(), (String) cbIdType.getSelectedItem(), idNum, (int) spGuests.getValue(), plan);
 
         boolean ok = room.reserve(guest.getFullName(), SDF.format(ci), SDF.format(co));
         if (ok) {
@@ -648,6 +648,7 @@ public class GUI_HOTEL extends JFrame {
                 "  Ins. Cost    : PHP %,.2f  (%.0f%% of room total)\n" +
                 "  Policy #     : %s\n" +
                 "  Coverage Lim : PHP %,.2f\n" +
+                "  Pay over the counter upon check-in.\n" +
                 "═════════════════════════════════════════════\n" +
                 "  GRAND TOTAL  : PHP %,.2f\n" +
                 "╚═══════════════════════════════════════════╝\n" +
