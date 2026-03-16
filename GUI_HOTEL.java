@@ -17,16 +17,16 @@ public class GUI_HOTEL extends JFrame {
 
     
     //  COLOUR PALETTE
-    private static final Color GOLD        = new Color(197, 153,   0);
+    private static final Color GOLD        = new Color(212, 175,   55);
     private static final Color GOLD_LIGHT  = new Color(218, 180,  30);
-    private static final Color GOLD_DARK   = new Color(150, 110,   0);
-    private static final Color BG_WHITE    = new Color(255, 255, 255);
-    private static final Color BG_LGREY    = new Color(250, 250, 250);  // very light grey (main bg)
-    private static final Color BG_GREY     = new Color(242, 242, 242);  // light grey panels
-    private static final Color PANEL_GREY  = new Color(235, 235, 235);  // borders / dividers
-    private static final Color BG_DARK     = new Color( 30,  30,  30);
-    private static final Color TEXT_DARK   = new Color( 40,  40,  40);
-    private static final Color BTN_HOVER   = new Color(240, 200,  50);
+    private static final Color GOLD_DARK   = new Color(0, 0,   0);
+    private static final Color BG_WHITE    = new Color(250, 250, 250);
+    private static final Color BG_LGREY    = new Color(255, 255, 255);  // very light grey (main bg)
+    private static final Color BG_GREY     = new Color(255, 255, 255);  // light grey panels
+    private static final Color PANEL_GREY  = new Color(250, 250, 250);  // borders / dividers
+    private static final Color BG_DARK     = new Color( 0,  0,  205);  // dark blue background
+    private static final Color TEXT_DARK   = new Color( 10,  0,  0);
+    private static final Color BTN_HOVER   = new Color(250, 255,  255);
     private static final Color SUCCESS     = new Color( 34, 139,  34);
     private static final Color ERROR_RED   = new Color(180,  30,  30);
     private static final Color INSURE_BLUE = new Color( 20,  80, 190);
@@ -70,7 +70,7 @@ public class GUI_HOTEL extends JFrame {
     public GUI_HOTEL() {
         initRooms();
         buildUI();
-        setTitle("THE epstein Reservation System");
+        setTitle("the trump tower Reservation System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1030, 780);
         setMinimumSize(new Dimension(920, 680));
@@ -106,11 +106,11 @@ public class GUI_HOTEL extends JFrame {
         h.setBackground(BG_DARK);
         h.setBorder(new EmptyBorder(16, 24, 12, 24));
 
-        JLabel title = new JLabel("THE EPSTEIN ISLAND GRAND HOTEL");
+        JLabel title = new JLabel("THE TRUMP TOWER");
         title.setFont(new Font("Georgia", Font.BOLD, 30));
         title.setForeground(GOLD);
 
-        JLabel sub = new JLabel("  Luxury Reservations & Room Management");
+        JLabel sub = new JLabel(" Luxury Room Reservations ");
         sub.setFont(new Font("Segoe UI", Font.ITALIC, 13));
         sub.setForeground(new Color(200, 200, 200));
 
@@ -138,7 +138,7 @@ public class GUI_HOTEL extends JFrame {
 
     private JLabel buildFooter() {
         JLabel f = new JLabel(
-            "  © THE NARCO HOTEL  |  80 Rooms  |  24/7 Service  ",
+            "  © THE TRUMP TOWER  |  80 Rooms  |  24/7 Service  ",
             SwingConstants.CENTER);
         f.setFont(new Font("Segoe UI", Font.ITALIC, 11));
         f.setForeground(GOLD);
@@ -210,7 +210,7 @@ public class GUI_HOTEL extends JFrame {
         JPanel p = white("Room Selection");
 
         String[] types = {"Economy Room","Couple Room","Superior Room","Deluxe Room",
-                          "Executive Room","Junior Suite","Master Suite","Penthouse Suite","VIP Room"};
+                    "Executive Room","Junior Suite","Master Suite","Penthouse Suite","VIP Room"};
         cbRoomType   = new JComboBox<>(types); styleCombo(cbRoomType);
         cbRoomNumber = new JComboBox<>();       styleCombo(cbRoomNumber);
 

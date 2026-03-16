@@ -8,7 +8,7 @@ public class Junior_Suite extends Economy_Room {
     public Junior_Suite() {
         super();
         setRoomType("Junior Suite");
-        setPricePerNight(6500.00);
+        setPricePerNight(7500.00);
         setMaxOccupancy(3);
         setDescription("Junior Suite with separate living area, plush king bed, marble bathroom with bathtub, and complimentary mini-bar.");
         this.hasSeparateLivingArea = true;

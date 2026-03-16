@@ -13,7 +13,7 @@ public class User_name {
     public User_name() {}
 
     public User_name(String firstName, String lastName, String contactNumber,
-                     String email, String idType, String idNumber, int numberOfGuests) {
+                    String email, String idType, String idNumber, int numberOfGuests) {
         this.firstName      = firstName;
         this.lastName       = lastName;
         this.contactNumber  = contactNumber;
