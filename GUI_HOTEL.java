@@ -1,10 +1,3 @@
-// =============================================
-//  GUI_HOTEL.java  —  THE NARCO HOTEL
-//  Full Reservation System  |  80 Rooms
-//  OOP + Getters/Setters + Swing GUI
-//  v2: Scroll Dates | Price Calc | Insurance
-// =============================================
-
 import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.*;
