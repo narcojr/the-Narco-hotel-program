@@ -24,7 +24,7 @@ public class GUI_HOTEL extends JFrame {
     private static final Color BG_LGREY    = new Color(255, 255, 255);  // very light grey (main bg)
     private static final Color BG_GREY     = new Color(255, 255, 255);  // light grey panels
     private static final Color PANEL_GREY  = new Color(250, 250, 250);  // borders / dividers
-    private static final Color BG_DARK     = new Color( 0,  0,  205);  // dark blue background
+    private static final Color BG_DARK     = new Color( 0,  0,  139);  // dark blue background
     private static final Color TEXT_DARK   = new Color( 10,  0,  0);
     private static final Color BTN_HOVER   = new Color(250, 255,  255);
     private static final Color SUCCESS     = new Color( 34, 139,  34);
@@ -107,7 +107,7 @@ public class GUI_HOTEL extends JFrame {
         h.setBorder(new EmptyBorder(16, 24, 12, 24));
 
         JLabel title = new JLabel("THE NINE ELEVENTH TOWER");
-        title.setFont(new Font("Georgia", Font.BOLD, 30));
+        title.setFont(new Font("Georgia", Font.BOLD, 31));
         title.setForeground(GOLD);
 
         JLabel sub = new JLabel(" Luxury Room Reservations | WATCH FOR THE PLANES ");
@@ -628,7 +628,7 @@ public class GUI_HOTEL extends JFrame {
 
             String receipt = String.format(
                 "╔═══════════════════════════════════════════╗\n" +
-                "║      THE NARCO HOTEL — RESERVATION        ║\n" +
+                "║    THE NINE ELEVENTH TOWER — RESERVATION  ║\n" +
                 "╠═══════════════════════════════════════════╣\n" +
                 "  Room Number  : %d  (Floor %d)\n" +
                 "  Room Type    : %s\n" +
@@ -648,11 +648,11 @@ public class GUI_HOTEL extends JFrame {
                 "  Ins. Cost    : PHP %,.2f  (%.0f%% of room total)\n" +
                 "  Policy #     : %s\n" +
                 "  Coverage Lim : PHP %,.2f\n" +
-                "  Pay over the counter upon check-in.\n" +
                 "═════════════════════════════════════════════\n" +
+                "  Pay over the counter upon check-in.\n" +
                 "  GRAND TOTAL  : PHP %,.2f\n" +
                 "╚═══════════════════════════════════════════╝\n" +
-                "  Thank you for choosing THE NARCO HOTEL!",
+                "  Thank you for choosing 9/11 hotel!",
                 room.getRoomNumber(), room.getFloor(), room.getRoomType(),
                 guest.getFullName(), guest.getContactNumber(),
                 cbIdType.getSelectedItem(), idNum, (int) spGuests.getValue(),
