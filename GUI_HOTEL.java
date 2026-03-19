@@ -70,7 +70,7 @@ public class GUI_HOTEL extends JFrame {
     public GUI_HOTEL() {
         initRooms();
         buildUI();
-        setTitle("the 9/11 Reservation System");
+        setTitle("the Bin laden Reservation System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1030, 780);
         setMinimumSize(new Dimension(920, 680));
@@ -110,7 +110,7 @@ public class GUI_HOTEL extends JFrame {
         title.setFont(new Font("Georgia", Font.BOLD, 31));
         title.setForeground(GOLD);
 
-        JLabel sub = new JLabel(" Luxury Room Reservations | WATCH FOR THE PLANES ");
+        JLabel sub = new JLabel(" Luxury Room Reservations ");
         sub.setFont(new Font("Segoe UI", Font.ITALIC, 13));
         sub.setForeground(new Color(200, 200, 200));
 
@@ -138,7 +138,7 @@ public class GUI_HOTEL extends JFrame {
 
     private JLabel buildFooter() {
         JLabel f = new JLabel(
-            "  © THE TRUMP TOWER  |  80 Rooms  |  24/7 Service  ",
+            "  © THE NINE ELEVENTH TOWER  |  80 Rooms  |  24/7 Service  ",
             SwingConstants.CENTER);
         f.setFont(new Font("Segoe UI", Font.ITALIC, 11));
         f.setForeground(GOLD);
@@ -251,7 +251,7 @@ public class GUI_HOTEL extends JFrame {
 
         p.add(formRow("First Name:",    tfFirstName));
         p.add(formRow("Last Name:",     tfLastName));
-        p.add(formRow("Contact No.:",   tfContact));
+        p.add(formRow("Contact No.",   tfContact));
         p.add(formRow("Email:",         tfEmail));
         p.add(formRow("ID Type:",       cbIdType));
         p.add(formRow("ID Number:",     tfIdNumber));
@@ -652,7 +652,7 @@ public class GUI_HOTEL extends JFrame {
                 "  Pay over the counter upon check-in.\n" +
                 "  GRAND TOTAL  : PHP %,.2f\n" +
                 "╚═══════════════════════════════════════════╝\n" +
-                "  Thank you for choosing 9/11 hotel!",
+                "   Watch for the plane of Bin Laden!",
                 room.getRoomNumber(), room.getFloor(), room.getRoomType(),
                 guest.getFullName(), guest.getContactNumber(),
                 cbIdType.getSelectedItem(), idNum, (int) spGuests.getValue(),
