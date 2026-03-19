@@ -17,16 +17,16 @@ public class GUI_HOTEL extends JFrame {
 
     
     //  COLOUR PALETTE
-    private static final Color GOLD        = new Color(212, 175,   55);
+    private static final Color GOLD        = new Color(197, 153,   0);
     private static final Color GOLD_LIGHT  = new Color(218, 180,  30);
-    private static final Color GOLD_DARK   = new Color(0, 0,   0);
-    private static final Color BG_WHITE    = new Color(250, 250, 250);
-    private static final Color BG_LGREY    = new Color(255, 255, 255);  // very light grey (main bg)
-    private static final Color BG_GREY     = new Color(255, 255, 255);  // light grey panels
-    private static final Color PANEL_GREY  = new Color(250, 250, 250);  // borders / dividers
-    private static final Color BG_DARK     = new Color( 0,  0,  139);  // dark blue background
-    private static final Color TEXT_DARK   = new Color( 10,  0,  0);
-    private static final Color BTN_HOVER   = new Color(250, 255,  255);
+    private static final Color GOLD_DARK   = new Color(150, 110,   0);
+    private static final Color BG_WHITE    = new Color(255, 255, 255);
+    private static final Color BG_LGREY    = new Color(250, 250, 250);  // very light grey (main bg)
+    private static final Color BG_GREY     = new Color(242, 242, 242);  // light grey panels
+    private static final Color PANEL_GREY  = new Color(235, 235, 235);  // borders / dividers
+    private static final Color BG_DARK     = new Color( 0,  0,  0);
+    private static final Color TEXT_DARK   = new Color( 40,  40,  40);
+    private static final Color BTN_HOVER   = new Color(240, 200,  50);
     private static final Color SUCCESS     = new Color( 34, 139,  34);
     private static final Color ERROR_RED   = new Color(180,  30,  30);
     private static final Color INSURE_BLUE = new Color( 20,  80, 190);
@@ -43,8 +43,9 @@ public class GUI_HOTEL extends JFrame {
     
     //  TAB 1 COMPONENTS
     private JComboBox<String> cbRoomType, cbRoomNumber;
-    private JTextField tfFirstName, tfLastName, tfContact, tfEmail, tfIdNumber;
-    private JComboBox<String> cbIdType, cbInsurancePlan;
+    private JTextField tfFirstName, tfLastName, tfContact, tfEmail, tfIdNumber, tfCardNumber;
+    private JComboBox<String> cbIdType, cbInsurancePlan, cbPaymentMethod;
+    private JPanel rowCardNumber;
     private JSpinner spGuests, spCheckIn, spCheckOut;
     private JTextArea taRoomDesc;
     private JTextArea insDescArea;
@@ -70,7 +71,11 @@ public class GUI_HOTEL extends JFrame {
     public GUI_HOTEL() {
         initRooms();
         buildUI();
+<<<<<<< HEAD
         setTitle("the Bin laden Reservation System");
+=======
+        setTitle("The Bin Laden Hotel Reservation System");
+>>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1030, 780);
         setMinimumSize(new Dimension(920, 680));
@@ -106,11 +111,15 @@ public class GUI_HOTEL extends JFrame {
         h.setBackground(BG_DARK);
         h.setBorder(new EmptyBorder(16, 24, 12, 24));
 
-        JLabel title = new JLabel("THE NINE ELEVENTH TOWER");
-        title.setFont(new Font("Georgia", Font.BOLD, 31));
+        JLabel title = new JLabel("THE TWIN TOWER GRAND HOTEL");
+        title.setFont(new Font("Georgia", Font.BOLD, 30));
         title.setForeground(GOLD);
 
+<<<<<<< HEAD
         JLabel sub = new JLabel(" Luxury Room Reservations ");
+=======
+        JLabel sub = new JLabel("  Luxury Reservations & Room Management | The ninth and eleventh hotel");
+>>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
         sub.setFont(new Font("Segoe UI", Font.ITALIC, 13));
         sub.setForeground(new Color(200, 200, 200));
 
@@ -138,7 +147,11 @@ public class GUI_HOTEL extends JFrame {
 
     private JLabel buildFooter() {
         JLabel f = new JLabel(
+<<<<<<< HEAD
             "  © THE NINE ELEVENTH TOWER  |  80 Rooms  |  24/7 Service  ",
+=======
+            "  © THE  HOTEL  |  80 Rooms  |  24/7 Service  ",
+>>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
             SwingConstants.CENTER);
         f.setFont(new Font("Segoe UI", Font.ITALIC, 11));
         f.setForeground(GOLD);
@@ -210,7 +223,7 @@ public class GUI_HOTEL extends JFrame {
         JPanel p = white("Room Selection");
 
         String[] types = {"Economy Room","Couple Room","Superior Room","Deluxe Room",
-                    "Executive Room","Junior Suite","Master Suite","Penthouse Suite","VIP Room"};
+                          "Executive Room","Junior Suite","Master Suite","Penthouse Suite","VIP Room"};
         cbRoomType   = new JComboBox<>(types); styleCombo(cbRoomType);
         cbRoomNumber = new JComboBox<>();       styleCombo(cbRoomNumber);
 
@@ -241,13 +254,26 @@ public class GUI_HOTEL extends JFrame {
         JPanel p = white("Guest Information");
 
         tfFirstName = sf(); tfLastName = sf(); tfContact = sf();
-        tfEmail = sf(); tfIdNumber = sf();
+        tfEmail = sf(); tfIdNumber = sf(); tfCardNumber = sf();
 
         String[] ids = {"Passport","Driver's License","SSS ID","PhilHealth ID","Voter's ID","School ID"};
         cbIdType = new JComboBox<>(ids); styleCombo(cbIdType);
 
+        String[] payments = {"Cash","Credit Card","Debit Card","GCash","PayMaya","Bank Transfer"};
+        cbPaymentMethod = new JComboBox<>(payments); styleCombo(cbPaymentMethod);
+
         spGuests = new JSpinner(new SpinnerNumberModel(1, 1, 10, 1));
         spGuests.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+
+        rowCardNumber = formRow("Card/Ref No.:", tfCardNumber);
+
+        cbPaymentMethod.addActionListener(e -> {
+            String method = (String) cbPaymentMethod.getSelectedItem();
+            boolean needsCard = method != null && (method.equals("Credit Card") || method.equals("Debit Card")
+                    || method.equals("GCash") || method.equals("PayMaya") || method.equals("Bank Transfer"));
+            rowCardNumber.setVisible(needsCard);
+            if (!needsCard) tfCardNumber.setText("");
+        });
 
         p.add(formRow("First Name:",    tfFirstName));
         p.add(formRow("Last Name:",     tfLastName));
@@ -256,6 +282,10 @@ public class GUI_HOTEL extends JFrame {
         p.add(formRow("ID Type:",       cbIdType));
         p.add(formRow("ID Number:",     tfIdNumber));
         p.add(formRow("No. of Guests:", spGuests));
+        p.add(formRow("Payment Method:", cbPaymentMethod));
+        p.add(rowCardNumber);
+
+        rowCardNumber.setVisible(false);
         return p;
     }
 
@@ -601,6 +631,14 @@ public class GUI_HOTEL extends JFrame {
             showMsg("Please fill in all required fields.", "Incomplete Form", JOptionPane.WARNING_MESSAGE); return;
         }
 
+        String payMethod = (String) cbPaymentMethod.getSelectedItem();
+        String cardNum   = tfCardNumber.getText().trim();
+        boolean needsCard = payMethod != null && (payMethod.equals("Credit Card") || payMethod.equals("Debit Card")
+                || payMethod.equals("GCash") || payMethod.equals("PayMaya") || payMethod.equals("Bank Transfer"));
+        if (needsCard && cardNum.isEmpty()) {
+            showMsg("Please enter a card/reference number for the selected payment method.", "Incomplete Form", JOptionPane.WARNING_MESSAGE); return;
+        }
+
         Date ci = (Date) spCheckIn.getValue();
         Date co = (Date) spCheckOut.getValue();
         if (!co.after(ci)) { showMsg("Check-out must be after check-in.", "Invalid Dates", JOptionPane.WARNING_MESSAGE); return; }
@@ -619,16 +657,21 @@ public class GUI_HOTEL extends JFrame {
         double grand     = roomTotal + insCost;
 
         User_name guest = new User_name(first, last, contact,
-                tfEmail.getText().trim(), (String) cbIdType.getSelectedItem(), idNum, (int) spGuests.getValue(), plan);
+                tfEmail.getText().trim(), (String) cbIdType.getSelectedItem(), idNum,
+                (int) spGuests.getValue(), payMethod, needsCard ? cardNum : "N/A");
 
         boolean ok = room.reserve(guest.getFullName(), SDF.format(ci), SDF.format(co));
         if (ok) {
             roomInsurance.put(rn, ins);
             roomNights.put(rn, nights);
 
+            String maskedCard = needsCard && cardNum.length() >= 4
+                    ? "**** **** **** " + cardNum.substring(cardNum.length() - 4)
+                    : "N/A";
+
             String receipt = String.format(
                 "╔═══════════════════════════════════════════╗\n" +
-                "║    THE NINE ELEVENTH TOWER — RESERVATION  ║\n" +
+                "║ THE TWIN TOWER GRAND HOTEL — RESERVATION  ║\n" +
                 "╠═══════════════════════════════════════════╣\n" +
                 "  Room Number  : %d  (Floor %d)\n" +
                 "  Room Type    : %s\n" +
@@ -648,11 +691,17 @@ public class GUI_HOTEL extends JFrame {
                 "  Ins. Cost    : PHP %,.2f  (%.0f%% of room total)\n" +
                 "  Policy #     : %s\n" +
                 "  Coverage Lim : PHP %,.2f\n" +
+                "─────────────────────────────────────────────\n" +
+                "  Payment      : %s\n" +
+                "  Card/Ref No. : %s\n" +
                 "═════════════════════════════════════════════\n" +
-                "  Pay over the counter upon check-in.\n" +
                 "  GRAND TOTAL  : PHP %,.2f\n" +
                 "╚═══════════════════════════════════════════╝\n" +
+<<<<<<< HEAD
                 "   Watch for the plane of Bin Laden!",
+=======
+                "  Thank you for choosing 9/11!",
+>>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
                 room.getRoomNumber(), room.getFloor(), room.getRoomType(),
                 guest.getFullName(), guest.getContactNumber(),
                 cbIdType.getSelectedItem(), idNum, (int) spGuests.getValue(),
@@ -660,6 +709,7 @@ public class GUI_HOTEL extends JFrame {
                 room.getPricePerNight(), roomTotal,
                 plan, insCost, Insurance.getRateFor(plan),
                 ins.getPolicyNumber(), Insurance.getLimitFor(plan),
+                payMethod, maskedCard,
                 grand);
 
             JTextArea ta = new JTextArea(receipt);
@@ -667,7 +717,7 @@ public class GUI_HOTEL extends JFrame {
             ta.setEditable(false);
             ta.setBackground(BG_LGREY);
             JScrollPane sp = new JScrollPane(ta);
-            sp.setPreferredSize(new Dimension(500, 360));
+            sp.setPreferredSize(new Dimension(500, 380));
             JOptionPane.showMessageDialog(this, sp, "✔ Reservation Confirmed", JOptionPane.INFORMATION_MESSAGE);
 
             clearForm();
@@ -679,8 +729,10 @@ public class GUI_HOTEL extends JFrame {
 
     private void clearForm() {
         tfFirstName.setText(""); tfLastName.setText(""); tfContact.setText("");
-        tfEmail.setText(""); tfIdNumber.setText("");
+        tfEmail.setText(""); tfIdNumber.setText(""); tfCardNumber.setText("");
         spGuests.setValue(1);
+        cbPaymentMethod.setSelectedIndex(0);
+        rowCardNumber.setVisible(false);
         Calendar cal = Calendar.getInstance();
         spCheckIn.setValue(cal.getTime());
         cal.add(Calendar.DAY_OF_MONTH, 1);
