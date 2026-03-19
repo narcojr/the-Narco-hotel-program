@@ -111,7 +111,7 @@ public class GUI_HOTEL extends JFrame {
         title.setForeground(GOLD);
 
         JLabel sub = new JLabel(" Luxury Room Reservations | WATCH FOR THE PLANES ");
-        sub.setFont(new Font("Segoe UI", Font.ITALIC, 13));
+        sub.setFont(new Font("Segoe UI", Font.ITALIC, 14));
         sub.setForeground(new Color(200, 200, 200));
 
         JPanel tp = new JPanel();
