@@ -1,12 +1,12 @@
-import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.swing.*;
+import javax.swing.border.*;
+import javax.swing.table.*;
 
 public class GUI_HOTEL extends JFrame {
 
@@ -69,14 +69,10 @@ public class GUI_HOTEL extends JFrame {
 
     //  CONSTRUCTOR
     public GUI_HOTEL() {
-        initRooms();
-        buildUI();
-<<<<<<< HEAD
-        setTitle("the Bin laden Reservation System");
-=======
-        setTitle("The Bin Laden Hotel Reservation System");
->>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+initRooms();
+buildUI();
+setTitle("The Twin Tower Grand Hotel Reservation System");
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1030, 780);
         setMinimumSize(new Dimension(920, 680));
         setLocationRelativeTo(null);
@@ -111,16 +107,12 @@ public class GUI_HOTEL extends JFrame {
         h.setBackground(BG_DARK);
         h.setBorder(new EmptyBorder(16, 24, 12, 24));
 
-        JLabel title = new JLabel("THE TWIN TOWER GRAND HOTEL");
-        title.setFont(new Font("Georgia", Font.BOLD, 30));
-        title.setForeground(GOLD);
+JLabel title = new JLabel("THE TWIN TOWER GRAND HOTEL");
+title.setFont(new Font("Georgia", Font.BOLD, 30));
+title.setForeground(GOLD);
 
-<<<<<<< HEAD
-        JLabel sub = new JLabel(" Luxury Room Reservations ");
-=======
-        JLabel sub = new JLabel("  Luxury Reservations & Room Management | The ninth and eleventh hotel");
->>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
-        sub.setFont(new Font("Segoe UI", Font.ITALIC, 13));
+JLabel sub = new JLabel("  Luxury Reservations & Room Management");
+sub.setFont(new Font("Segoe UI", Font.ITALIC, 13));
         sub.setForeground(new Color(200, 200, 200));
 
         JPanel tp = new JPanel();
@@ -145,14 +137,10 @@ public class GUI_HOTEL extends JFrame {
         return wrap;
     }
 
-    private JLabel buildFooter() {
-        JLabel f = new JLabel(
-<<<<<<< HEAD
-            "  © THE NINE ELEVENTH TOWER  |  80 Rooms  |  24/7 Service  ",
-=======
-            "  © THE  HOTEL  |  80 Rooms  |  24/7 Service  ",
->>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
-            SwingConstants.CENTER);
+private JLabel buildFooter() {
+    JLabel f = new JLabel(
+        "  © THE TWIN TOWER GRAND HOTEL  |  80 Rooms  |  24/7 Service  ",
+        SwingConstants.CENTER);
         f.setFont(new Font("Segoe UI", Font.ITALIC, 11));
         f.setForeground(GOLD);
         f.setBackground(BG_DARK);
@@ -697,12 +685,8 @@ public class GUI_HOTEL extends JFrame {
                 "═════════════════════════════════════════════\n" +
                 "  GRAND TOTAL  : PHP %,.2f\n" +
                 "╚═══════════════════════════════════════════╝\n" +
-<<<<<<< HEAD
-                "   Watch for the plane of Bin Laden!",
-=======
-                "  Thank you for choosing 9/11!",
->>>>>>> df41daf6c27f34fb6e785dab9062ee86d5c3b0f3
-                room.getRoomNumber(), room.getFloor(), room.getRoomType(),
+                   "  Thank you for your reservation!",
+room.getRoomNumber(), room.getFloor(), room.getRoomType(),
                 guest.getFullName(), guest.getContactNumber(),
                 cbIdType.getSelectedItem(), idNum, (int) spGuests.getValue(),
                 SDF.format(ci), SDF.format(co), nights,
